@@ -1,0 +1,22 @@
+ansible_host=10.0.0.8  ip=10.0.0.8
+ansible_host=10.0.0.7  ip=10.0.0.7
+node3  ansible_host=10.0.0.9  ip=10.0.0.9
+
+# ## configure a bastion host if your nodes are not directly reachable
+# bastion ansible_host=x.x.x.x ansible_user=some_user
+
+[kube-master]
+10.0.0.7
+10.0.0.8
+10.0.0.9
+
+[etcd]
+10.0.0.7
+10.0.0.8
+10.0.0.9
+
+[kube-node]
+
+[k8s-cluster:children]
+kube-master
+kube-node
